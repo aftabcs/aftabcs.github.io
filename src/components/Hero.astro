@@ -1,0 +1,81 @@
+---
+---
+<section id="hero" class="relative min-h-screen flex flex-col justify-center overflow-hidden">
+  <!-- Background gradient -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_900px_700px_at_110%_110%,rgba(139,92,246,0.07),transparent)] pointer-events-none"></div>
+
+  <div class="max-w-[1280px] mx-auto px-6 pt-32 pb-16 lg:pt-48 lg:pb-24 relative z-10">
+    <!-- Status label -->
+    <div id="hero-label" class="opacity-0 translate-y-4 transition-all duration-500 mb-6">
+      <span class="font-mono text-[0.7rem] text-[var(--color-accent)] uppercase tracking-widest border border-[var(--color-accent)] border-opacity-40 px-3 py-1.5 rounded-full">
+        FULL-STACK DEVELOPER &bull; OPEN TO WORK
+      </span>
+    </div>
+
+    <!-- Name -->
+    <h1 class="font-display font-black leading-none tracking-tighter mb-6">
+      <span id="hero-name1" class="block opacity-0 translate-y-8 transition-all duration-700" style="font-size: clamp(4rem, 10vw, 9rem)">AFTAB</span>
+      <span id="hero-name2" class="block opacity-0 translate-y-8 transition-all duration-700" style="font-size: clamp(4rem, 10vw, 9rem)">
+        ALAM<span class="text-[var(--color-accent)]">.</span>
+      </span>
+    </h1>
+
+    <!-- Tagline -->
+    <p id="hero-tagline" class="opacity-0 transition-all duration-500 text-[var(--color-text-secondary)] mb-10 max-w-lg" style="font-size: clamp(1.125rem, 2vw, 1.5rem); line-height: 1.6">
+      Building fast, accessible products<br class="hidden sm:block" /> for the web and mobile.
+    </p>
+
+    <!-- CTAs -->
+    <div id="hero-ctas" class="opacity-0 transition-all duration-500 flex flex-col sm:flex-row gap-3">
+      <a
+        href="#projects"
+        class="inline-flex items-center justify-center gap-2 bg-[var(--color-accent)] text-white font-body font-medium px-7 py-3.5 rounded-lg hover:brightness-110 hover:-translate-y-0.5 transition-all duration-200"
+        style="box-shadow: 0 4px 20px rgba(139,92,246,0.3)"
+      >
+        View My Work
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a
+        href="#contact"
+        class="inline-flex items-center justify-center gap-2 border border-[var(--color-accent)] text-[var(--color-accent)] font-body font-medium px-7 py-3.5 rounded-lg hover:bg-[var(--color-accent-subtle)] hover:-translate-y-0.5 transition-all duration-200"
+      >
+        Let's Talk
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div id="scroll-indicator" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[var(--color-text-muted)] transition-opacity duration-300">
+    <span class="font-mono text-[0.65rem] uppercase tracking-widest">Scroll</span>
+    <svg class="animate-bounce" width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path d="M10 4v12M4 10l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<script is:inline>
+  // Hero entrance animation
+  setTimeout(() => {
+    document.getElementById('hero-label')?.classList.remove('opacity-0', 'translate-y-4');
+  }, 100);
+  setTimeout(() => {
+    document.getElementById('hero-name1')?.classList.remove('opacity-0', 'translate-y-8');
+  }, 280);
+  setTimeout(() => {
+    document.getElementById('hero-name2')?.classList.remove('opacity-0', 'translate-y-8');
+  }, 460);
+  setTimeout(() => {
+    document.getElementById('hero-tagline')?.classList.remove('opacity-0');
+  }, 640);
+  setTimeout(() => {
+    document.getElementById('hero-ctas')?.classList.remove('opacity-0');
+  }, 800);
+
+  // Fade scroll indicator on scroll
+  window.addEventListener('scroll', () => {
+    const indicator = document.getElementById('scroll-indicator');
+    if (indicator) {
+      indicator.style.opacity = window.scrollY > 100 ? '0' : '1';
+    }
+  });
+</script>

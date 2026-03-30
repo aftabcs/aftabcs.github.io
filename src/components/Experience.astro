@@ -1,0 +1,124 @@
+---
+const experiences = [
+  {
+    role: "Software Engineer — Mobile Development Lead",
+    company: "Codebase Technology",
+    location: "Bahrain",
+    period: "Apr 2025 – Present",
+    current: true,
+    bullets: [
+      "Leading mobile development for Ajman Bank Connect, Capital Bank, and Neo Bank Audi",
+      "Architecting Flutter apps with Clean Architecture + Riverpod state management",
+      "Driving cross-functional collaboration across design, backend, and QA teams",
+    ],
+  },
+  {
+    role: "Software Developer",
+    company: "NeoSoft Technology",
+    location: "India",
+    period: "Jun 2022 – Mar 2025",
+    bullets: [
+      "Built production Flutter apps across fintech and sustainability domains",
+      "Developed ICICI Virtual RM and MyTree carbon footprint tracker",
+      "Implemented complex UI patterns, offline-first storage, and payment integrations",
+    ],
+  },
+  {
+    role: "Freelance Developer",
+    company: "Self-Employed",
+    location: "Remote",
+    period: "2021 – 2022",
+    bullets: [
+      "Delivered Afeefa Handlooms mobile CRM — full-stack Flutter + Firestore",
+      "End-to-end client management: requirements, development, deployment",
+    ],
+  },
+  {
+    role: "Programming Instructor",
+    company: "The Pro Institute",
+    location: "India",
+    period: "2020 (6 months)",
+    bullets: [
+      "Taught programming fundamentals and app development to students",
+      "Created curriculum for introductory mobile development course",
+    ],
+  },
+];
+---
+<section id="experience" class="py-24 lg:py-32">
+  <div class="max-w-[1280px] mx-auto px-6">
+    <div class="reveal mb-16">
+      <div class="section-label mb-4">Experience</div>
+      <h2 class="font-display font-bold text-[var(--color-text-primary)]" style="font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -0.03em; line-height: 1.05">
+        Career Timeline
+      </h2>
+    </div>
+
+    <!-- Desktop timeline -->
+    <div class="hidden lg:block relative">
+      <!-- Vertical line -->
+      <div class="absolute left-[168px] top-0 bottom-0 w-px bg-[var(--color-border)]"></div>
+
+      <div class="space-y-12">
+        {experiences.map((exp, i) => (
+          <div class="flex gap-0 reveal" style={`transition-delay: ${i * 100}ms`}>
+            <!-- Date column -->
+            <div class="w-40 shrink-0 text-right pr-8 pt-0.5">
+              <span class="font-mono text-[0.8rem] text-[var(--color-text-muted)]">{exp.period}</span>
+            </div>
+
+            <!-- Dot -->
+            <div class="relative flex items-start justify-center w-8 shrink-0 pt-1">
+              <div
+                class:list={[
+                  "rounded-full border-2 border-[var(--color-bg)]",
+                  exp.current
+                    ? "w-3.5 h-3.5 bg-[var(--color-accent)] ring-2 ring-[var(--color-accent)] ring-offset-1 ring-offset-[var(--color-bg)]"
+                    : "w-2.5 h-2.5 bg-[var(--color-accent)]"
+                ]}
+                style={exp.current ? "box-shadow: var(--shadow-accent)" : ""}
+              ></div>
+            </div>
+
+            <!-- Content -->
+            <div class="flex-1 pl-6 pb-4">
+              <div class="flex flex-wrap items-center gap-2 mb-1">
+                <h3 class="font-display font-semibold text-[var(--color-text-primary)] text-lg">{exp.role}</h3>
+                <span class="text-[var(--color-text-muted)]">·</span>
+                <span class="font-body text-[var(--color-accent)] font-medium">{exp.company}</span>
+                <span class="font-mono text-[0.7rem] text-[var(--color-text-muted)]">{exp.location}</span>
+              </div>
+              <ul class="space-y-1.5 mt-3">
+                {exp.bullets.map(bullet => (
+                  <li class="flex gap-2 text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                    <span class="text-[var(--color-accent)] mt-1 shrink-0">–</span>
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Mobile: cards -->
+    <div class="lg:hidden space-y-4">
+      {experiences.map((exp, i) => (
+        <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-5 reveal" style={`transition-delay: ${i * 80}ms`}>
+          <div class="font-mono text-[0.75rem] text-[var(--color-accent)] mb-2">{exp.period}</div>
+          <h3 class="font-display font-semibold text-[var(--color-text-primary)] text-base mb-0.5">{exp.role}</h3>
+          <div class="text-[var(--color-text-muted)] text-sm mb-3">{exp.company} · {exp.location}</div>
+          <ul class="space-y-1.5">
+            {exp.bullets.map(bullet => (
+              <li class="flex gap-2 text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                <span class="text-[var(--color-accent)] shrink-0">–</span>
+                {bullet}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
