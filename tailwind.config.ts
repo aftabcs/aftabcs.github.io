@@ -12,9 +12,9 @@ export default {
       },
       colors: {
         accent: {
-          DEFAULT: "#8B5CF6",
-          subtle: "rgba(139,92,246,0.12)",
-          glow: "rgba(139,92,246,0.25)",
+          DEFAULT: "#E11D48",
+          subtle: "rgba(225,29,72,0.12)",
+          glow: "rgba(225,29,72,0.25)",
         },
         surface: {
           DEFAULT: "#111111",
@@ -27,11 +27,11 @@ export default {
       },
       backgroundImage: {
         "hero-gradient":
-          "radial-gradient(ellipse 900px 700px at 110% 110%, rgba(139,92,246,0.07), transparent)",
+          "radial-gradient(ellipse 900px 700px at 110% 110%, rgba(225,29,72,0.07), transparent)",
       },
       boxShadow: {
         accent:
-          "0 0 0 1px rgba(139,92,246,0.4), 0 8px 32px rgba(139,92,246,0.2)",
+          "0 0 0 1px rgba(225,29,72,0.4), 0 8px 32px rgba(225,29,72,0.2)",
       },
       animation: {
         "scroll-bounce": "scrollBounce 2s ease-in-out infinite",
