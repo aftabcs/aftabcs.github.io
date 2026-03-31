@@ -119,6 +119,11 @@
   /* Neomorphic wells */
   --shadow-neo-inset:   inset 2px 2px 6px rgba(0,0,0,0.5), inset -1px -1px 3px rgba(255,255,255,0.04);
 
+  /* Surface for inset/neo elements */
+  --color-surface-inset: #0C0C10;
+  --color-surface-input: #0A0A0E;
+  --color-footer-bg:     rgba(6,6,8,0.80);
+
   /* Legacy compatibility */
   --shadow-sm:    0 2px 8px rgba(0,0,0,0.4);
   --shadow-base:  0 4px 24px rgba(0,0,0,0.5);
@@ -155,6 +160,9 @@
   --shadow-glass-lg:    0 8px 48px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.70);
   --shadow-accent:      0 0 0 1px rgba(109,40,217,0.25), 0 8px 32px rgba(109,40,217,0.12);
   --shadow-neo-inset:   inset 2px 2px 6px rgba(0,0,0,0.08), inset -1px -1px 3px rgba(255,255,255,0.80);
+  --color-surface-inset: #FFFFFF;
+  --color-surface-input: #FFFFFF;
+  --color-footer-bg:     rgba(30,30,35,0.90);
 }
 
 html {
@@ -187,7 +195,7 @@ body {
 }
 
 @utility neo-well {
-  background: #0A0A0E;
+  background: var(--color-surface-input);
   box-shadow: var(--shadow-neo-inset);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
