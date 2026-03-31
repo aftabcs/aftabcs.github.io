@@ -324,3 +324,9 @@ body {
     linear-gradient(90deg, rgba(139,92,246,0.04) 1px, transparent 1px);
   background-size: 40px 40px;
 }
+
+.light .tech-grid {
+  background-image:
+    linear-gradient(rgba(109,40,217,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(109,40,217,0.06) 1px, transparent 1px);
+}
