@@ -78,17 +78,17 @@ const experiences = [
             <!-- Dot -->
             <div class="relative flex items-start justify-center w-8 shrink-0 pt-1">
               <div
-                class:list={["rounded-full", exp.current ? "w-3.5 h-3.5" : "w-2.5 h-2.5"]}
+                class:list={["rounded-full", exp.current ? "w-3.5 h-3.5 dot-pulse" : "w-2.5 h-2.5"]}
                 style={exp.current
-                  ? `background: var(--color-accent); box-shadow: 0 0 0 3px rgba(139,92,246,0.20), 0 0 12px rgba(139,92,246,0.40)`
-                  : `background: var(--color-accent); opacity: 0.7`
+                  ? `background: var(--color-accent); box-shadow: 0 0 0 3px rgba(139,92,246,0.25), 0 0 16px rgba(139,92,246,0.60)`
+                  : `background: var(--color-accent); opacity: 0.8; box-shadow: 0 0 8px rgba(139,92,246,0.35)`
                 }
               ></div>
             </div>
 
             <!-- Content — glass card -->
             <div class="flex-1 pl-6 pb-4">
-              <div class="rounded-[var(--radius-lg)] p-5" style="
+              <div class="exp-card rounded-[var(--radius-lg)] p-5 transition-all duration-300" style="
                 background: var(--glass-raised);
                 backdrop-filter: var(--blur-md);
                 -webkit-backdrop-filter: var(--blur-md);
@@ -145,3 +145,11 @@ const experiences = [
     </div>
   </div>
 </section>
+
+<style>
+  .exp-card:hover {
+    border-color: rgba(139,92,246,0.35) !important;
+    box-shadow: var(--shadow-glass-lg), 0 0 24px rgba(139,92,246,0.18) !important;
+    transform: translateY(-2px);
+  }
+</style>

@@ -19,28 +19,66 @@
   --radius-pill: 9999px;
 
   --animate-scroll-bounce: scrollBounce 2s ease-in-out infinite;
+  --animate-orb-drift-a: orbDriftA 18s ease-in-out infinite;
+  --animate-orb-drift-b: orbDriftB 22s ease-in-out infinite;
+  --animate-orb-drift-c: orbDriftC 26s ease-in-out infinite;
+  --animate-badge-pulse: badgePulse 2.5s ease-in-out infinite;
+  --animate-dot-pulse: dotPulse 2s ease-in-out infinite;
+  --animate-cursor-blink: cursorBlink 1s step-end infinite;
 
   @keyframes scrollBounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(8px); }
+  }
+
+  @keyframes orbDriftA {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33%       { transform: translate(60px, -40px) scale(1.08); }
+    66%       { transform: translate(-40px, 30px) scale(0.95); }
+  }
+
+  @keyframes orbDriftB {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    40%       { transform: translate(-70px, 50px) scale(1.1); }
+    75%       { transform: translate(50px, -30px) scale(0.92); }
+  }
+
+  @keyframes orbDriftC {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50%       { transform: translate(40px, 60px) scale(1.05); }
+  }
+
+  @keyframes badgePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(139,92,246,0.50), 0 0 16px rgba(139,92,246,0.30); }
+    50%       { box-shadow: 0 0 0 6px rgba(139,92,246,0.00), 0 0 32px rgba(139,92,246,0.50); }
+  }
+
+  @keyframes dotPulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(139,92,246,0.25), 0 0 12px rgba(139,92,246,0.40); }
+    50%       { box-shadow: 0 0 0 6px rgba(139,92,246,0.10), 0 0 24px rgba(139,92,246,0.70); }
+  }
+
+  @keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
   }
 }
 
 :root {
   /* Base */
   --color-bg:              #060608;
-  --color-bg-mesh:         radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,92,246,0.12) 0%, rgba(6,6,8,0) 70%);
+  --color-bg-mesh:         radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139,92,246,0.18) 0%, rgba(6,6,8,0) 70%);
 
-  /* Glass layers */
-  --glass-base:            rgba(255,255,255,0.04);
-  --glass-raised:          rgba(255,255,255,0.07);
-  --glass-prominent:       rgba(255,255,255,0.10);
-  --glass-frosted:         rgba(139,92,246,0.06);
+  /* Glass layers — v2: more visible frosted depth */
+  --glass-base:            rgba(255,255,255,0.07);
+  --glass-raised:          rgba(255,255,255,0.10);
+  --glass-prominent:       rgba(255,255,255,0.14);
+  --glass-frosted:         rgba(139,92,246,0.10);
 
-  /* Borders */
+  /* Borders — v2: stronger top highlights */
   --color-border:          rgba(255,255,255,0.08);
-  --color-border-accent:   rgba(139,92,246,0.35);
-  --color-border-light:    rgba(255,255,255,0.14);
+  --color-border-accent:   rgba(139,92,246,0.45);
+  --color-border-light:    rgba(255,255,255,0.20);
 
   /* Text */
   --color-text-primary:    #F0EFFF;
@@ -51,8 +89,17 @@
   --color-accent:          #8B5CF6;
   --color-accent-bright:   #A78BFA;
   --color-accent-subtle:   rgba(139,92,246,0.12);
-  --color-accent-glow:     rgba(139,92,246,0.30);
+  --color-accent-glow:     rgba(139,92,246,0.35);
   --color-accent-gradient: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+
+  /* Cyan complement */
+  --color-cyan:            #06B6D4;
+  --color-cyan-glow:       rgba(6,182,212,0.30);
+  --color-cyan-subtle:     rgba(6,182,212,0.08);
+
+  /* Gradient text */
+  --gradient-text:         linear-gradient(135deg, #A78BFA 0%, #8B5CF6 40%, #7C3AED 100%);
+  --gradient-text-bright:  linear-gradient(135deg, #C4B5FD 0%, #A78BFA 50%, #8B5CF6 100%);
 
   /* Blur */
   --blur-xs:   blur(4px);
@@ -61,11 +108,13 @@
   --blur-lg:   blur(24px);
   --blur-xl:   blur(40px);
 
-  /* Glass shadows */
-  --shadow-glass-sm:    0 2px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
-  --shadow-glass-base:  0 4px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.10), inset 0 -1px 0 rgba(0,0,0,0.20);
-  --shadow-glass-lg:    0 8px 48px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.12), inset 0 -1px 0 rgba(0,0,0,0.25);
-  --shadow-accent:      0 0 0 1px rgba(139,92,246,0.40), 0 8px 32px rgba(139,92,246,0.25), inset 0 1px 0 rgba(167,139,250,0.15);
+  /* Glass shadows — v2: deeper, more visible depth */
+  --shadow-glass-sm:    0 2px 8px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.12);
+  --shadow-glass-base:  0 4px 24px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.14), inset 0 -1px 0 rgba(0,0,0,0.25);
+  --shadow-glass-lg:    0 8px 48px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -1px 0 rgba(0,0,0,0.30);
+  --shadow-accent:      0 0 0 1px rgba(139,92,246,0.50), 0 8px 32px rgba(139,92,246,0.35), inset 0 1px 0 rgba(167,139,250,0.20);
+  --shadow-accent-hover: 0 0 0 1px rgba(139,92,246,0.70), 0 12px 40px rgba(139,92,246,0.50), inset 0 1px 0 rgba(167,139,250,0.25);
+  --shadow-neon-glow:   0 0 20px rgba(139,92,246,0.60), 0 0 40px rgba(139,92,246,0.30);
 
   /* Neomorphic wells */
   --shadow-neo-inset:   inset 2px 2px 6px rgba(0,0,0,0.5), inset -1px -1px 3px rgba(255,255,255,0.04);
@@ -87,9 +136,9 @@
 
 .light {
   --color-bg: #FAFAFA;
-  --glass-base:            rgba(0,0,0,0.03);
-  --glass-raised:          rgba(0,0,0,0.05);
-  --glass-frosted:         rgba(109,40,217,0.05);
+  --glass-base:            rgba(0,0,0,0.04);
+  --glass-raised:          rgba(0,0,0,0.07);
+  --glass-frosted:         rgba(109,40,217,0.07);
   --color-border:          rgba(0,0,0,0.10);
   --color-border-light:    rgba(255,255,255,0.80);
   --color-border-accent:   rgba(109,40,217,0.30);
@@ -142,6 +191,23 @@ body {
   box-shadow: var(--shadow-neo-inset);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
+}
+
+/* Gradient text utility */
+@utility text-gradient {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@utility text-gradient-bright {
+  background: var(--gradient-text-bright);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 /* Backdrop fallback for Firefox */
@@ -226,4 +292,27 @@ body {
 :focus-visible {
   outline: 2px solid rgba(139,92,246,0.70);
   outline-offset: 2px;
+}
+
+/* Animated badge pulse */
+.badge-pulse {
+  animation: badgePulse 2.5s ease-in-out infinite;
+}
+
+/* Animated dot pulse */
+.dot-pulse {
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+/* Cursor blink for typing effect */
+.cursor-blink {
+  animation: cursorBlink 1s step-end infinite;
+}
+
+/* Tech grid pattern */
+.tech-grid {
+  background-image:
+    linear-gradient(rgba(139,92,246,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139,92,246,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
