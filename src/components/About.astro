@@ -6,35 +6,42 @@
       <!-- Left: Label + Pull quote -->
       <div class="reveal">
         <div class="section-label mb-8">About</div>
-        <h2 class="font-display font-bold text-[var(--color-text-primary)] max-w-sm" style="font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.2; letter-spacing: -0.02em">
+        <h2 class="font-display font-bold max-w-sm" style="font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.2; letter-spacing: -0.02em; color: var(--color-text-primary)">
           Mobile-first engineer with fintech depth and leadership experience.
         </h2>
       </div>
 
-      <!-- Right: Bio + Stats -->
-      <div class="reveal">
-        <p class="text-[var(--color-text-secondary)] text-lg leading-relaxed mb-6">
+      <!-- Right: Bio + Stats — glass card -->
+      <div class="reveal rounded-[var(--radius-2xl)] p-8" style="
+        background: var(--glass-base);
+        backdrop-filter: var(--blur-md);
+        -webkit-backdrop-filter: var(--blur-md);
+        border: 1px solid var(--color-border);
+        border-top-color: var(--color-border-light);
+        box-shadow: var(--shadow-glass-base);
+      ">
+        <p class="text-lg leading-relaxed mb-6" style="color: var(--color-text-secondary)">
           Experienced software engineer with a strong focus on Flutter for mobile app development, complemented by expertise in Angular, NestJS, and cloud platforms. Currently leading mobile development for multiple fintech projects in the Middle East.
         </p>
-        <p class="text-[var(--color-text-secondary)] text-lg leading-relaxed mb-12">
+        <p class="text-lg leading-relaxed mb-12" style="color: var(--color-text-secondary)">
           Passionate about building fast, accessible products with clean architecture. Problem-solving at scale — from Islamic digital banking to carbon footprint tracking.
         </p>
 
         <!-- Stats row -->
-        <div class="flex flex-wrap gap-8 pt-8 border-t border-[var(--color-border)]">
+        <div class="flex flex-wrap gap-8 pt-8" style="border-top: 1px solid var(--color-border)">
           <div class="stagger-child reveal">
-            <div class="font-display font-bold text-[var(--color-accent)] mb-1" style="font-size: 2rem">4+</div>
-            <div class="font-mono text-[0.7rem] text-[var(--color-text-muted)] uppercase tracking-widest">Years Experience</div>
+            <div class="font-display font-bold mb-1" style="font-size: 2rem; color: var(--color-accent)">4+</div>
+            <div class="font-mono text-[0.7rem] uppercase tracking-widest" style="color: var(--color-text-muted)">Years Experience</div>
           </div>
-          <div class="w-px bg-[var(--color-border)] hidden sm:block"></div>
+          <div class="w-px hidden sm:block" style="background: var(--color-border)"></div>
           <div class="stagger-child reveal">
-            <div class="font-display font-bold text-[var(--color-accent)] mb-1" style="font-size: 2rem">8+</div>
-            <div class="font-mono text-[0.7rem] text-[var(--color-text-muted)] uppercase tracking-widest">Projects Shipped</div>
+            <div class="font-display font-bold mb-1" style="font-size: 2rem; color: var(--color-accent)">8+</div>
+            <div class="font-mono text-[0.7rem] uppercase tracking-widest" style="color: var(--color-text-muted)">Projects Shipped</div>
           </div>
-          <div class="w-px bg-[var(--color-border)] hidden sm:block"></div>
+          <div class="w-px hidden sm:block" style="background: var(--color-border)"></div>
           <div class="stagger-child reveal">
-            <div class="font-display font-bold text-[var(--color-accent)] mb-1" style="font-size: 2rem">1</div>
-            <div class="font-mono text-[0.7rem] text-[var(--color-text-muted)] uppercase tracking-widest">Award-Winning App</div>
+            <div class="font-display font-bold mb-1" style="font-size: 2rem; color: var(--color-accent)">1</div>
+            <div class="font-mono text-[0.7rem] uppercase tracking-widest" style="color: var(--color-text-muted)">Award-Winning App</div>
           </div>
         </div>
       </div>

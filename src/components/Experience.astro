@@ -49,70 +49,93 @@ const experiences = [
   <div class="max-w-[1280px] mx-auto px-6">
     <div class="reveal mb-16">
       <div class="section-label mb-4">Experience</div>
-      <h2 class="font-display font-bold text-[var(--color-text-primary)]" style="font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -0.03em; line-height: 1.05">
+      <h2 class="font-display font-bold" style="font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -0.03em; line-height: 1.05; color: var(--color-text-primary)">
         Career Timeline
       </h2>
     </div>
 
     <!-- Desktop timeline -->
     <div class="hidden lg:block relative">
-      <!-- Vertical line -->
-      <div class="absolute left-[168px] top-0 bottom-0 w-px bg-[var(--color-border)]"></div>
+      <!-- Gradient vertical line -->
+      <div class="absolute left-[168px] top-0 bottom-0 w-px" style="
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          var(--color-accent-glow) 20%,
+          var(--color-accent-glow) 80%,
+          transparent
+        )
+      "></div>
 
       <div class="space-y-12">
         {experiences.map((exp, i) => (
           <div class="flex gap-0 reveal" style={`transition-delay: ${i * 100}ms`}>
             <!-- Date column -->
             <div class="w-40 shrink-0 text-right pr-8 pt-0.5">
-              <span class="font-mono text-[0.8rem] text-[var(--color-text-muted)]">{exp.period}</span>
+              <span class="font-mono text-[0.8rem]" style="color: var(--color-text-muted)">{exp.period}</span>
             </div>
 
             <!-- Dot -->
             <div class="relative flex items-start justify-center w-8 shrink-0 pt-1">
               <div
-                class:list={[
-                  "rounded-full border-2 border-[var(--color-bg)]",
-                  exp.current
-                    ? "w-3.5 h-3.5 bg-[var(--color-accent)] ring-2 ring-[var(--color-accent)] ring-offset-1 ring-offset-[var(--color-bg)]"
-                    : "w-2.5 h-2.5 bg-[var(--color-accent)]"
-                ]}
-                style={exp.current ? "box-shadow: var(--shadow-accent)" : ""}
+                class:list={["rounded-full", exp.current ? "w-3.5 h-3.5" : "w-2.5 h-2.5"]}
+                style={exp.current
+                  ? `background: var(--color-accent); box-shadow: 0 0 0 3px rgba(139,92,246,0.20), 0 0 12px rgba(139,92,246,0.40)`
+                  : `background: var(--color-accent); opacity: 0.7`
+                }
               ></div>
             </div>
 
-            <!-- Content -->
+            <!-- Content — glass card -->
             <div class="flex-1 pl-6 pb-4">
-              <div class="flex flex-wrap items-center gap-2 mb-1">
-                <h3 class="font-display font-semibold text-[var(--color-text-primary)] text-lg">{exp.role}</h3>
-                <span class="text-[var(--color-text-muted)]">·</span>
-                <span class="font-body text-[var(--color-accent)] font-medium">{exp.company}</span>
-                <span class="font-mono text-[0.7rem] text-[var(--color-text-muted)]">{exp.location}</span>
+              <div class="rounded-[var(--radius-lg)] p-5" style="
+                background: var(--glass-raised);
+                backdrop-filter: var(--blur-md);
+                -webkit-backdrop-filter: var(--blur-md);
+                border: 1px solid var(--color-border);
+                border-top-color: var(--color-border-light);
+                box-shadow: var(--shadow-glass-base);
+              ">
+                <div class="flex flex-wrap items-center gap-2 mb-1">
+                  <h3 class="font-display font-semibold text-lg" style="color: var(--color-text-primary)">{exp.role}</h3>
+                  <span style="color: var(--color-text-muted)">·</span>
+                  <span class="font-body font-medium text-sm" style="color: var(--color-accent-bright)">{exp.company}</span>
+                  <span class="font-mono text-[0.7rem]" style="color: var(--color-text-muted)">{exp.location}</span>
+                </div>
+                <ul class="space-y-1.5 mt-3">
+                  {exp.bullets.map(bullet => (
+                    <li class="flex gap-2 text-sm leading-relaxed" style="color: var(--color-text-secondary)">
+                      <span class="mt-1 shrink-0" style="color: var(--color-accent)">–</span>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul class="space-y-1.5 mt-3">
-                {exp.bullets.map(bullet => (
-                  <li class="flex gap-2 text-sm text-[var(--color-text-secondary)] leading-relaxed">
-                    <span class="text-[var(--color-accent)] mt-1 shrink-0">–</span>
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         ))}
       </div>
     </div>
 
-    <!-- Mobile: cards -->
+    <!-- Mobile: glass cards -->
     <div class="lg:hidden space-y-4">
       {experiences.map((exp, i) => (
-        <div class="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-5 reveal" style={`transition-delay: ${i * 80}ms`}>
-          <div class="font-mono text-[0.75rem] text-[var(--color-accent)] mb-2">{exp.period}</div>
-          <h3 class="font-display font-semibold text-[var(--color-text-primary)] text-base mb-0.5">{exp.role}</h3>
-          <div class="text-[var(--color-text-muted)] text-sm mb-3">{exp.company} · {exp.location}</div>
+        <div class="rounded-2xl p-5 reveal" style={`
+          background: var(--glass-raised);
+          backdrop-filter: var(--blur-md);
+          -webkit-backdrop-filter: var(--blur-md);
+          border: 1px solid var(--color-border);
+          border-top-color: var(--color-border-light);
+          box-shadow: var(--shadow-glass-base);
+          transition-delay: ${i * 80}ms;
+        `}>
+          <div class="font-mono text-[0.75rem] mb-2" style="color: var(--color-accent-bright)">{exp.period}</div>
+          <h3 class="font-display font-semibold text-base mb-0.5" style="color: var(--color-text-primary)">{exp.role}</h3>
+          <div class="text-sm mb-3" style="color: var(--color-text-muted)">{exp.company} · {exp.location}</div>
           <ul class="space-y-1.5">
             {exp.bullets.map(bullet => (
-              <li class="flex gap-2 text-sm text-[var(--color-text-secondary)] leading-relaxed">
-                <span class="text-[var(--color-accent)] shrink-0">–</span>
+              <li class="flex gap-2 text-sm leading-relaxed" style="color: var(--color-text-secondary)">
+                <span class="shrink-0" style="color: var(--color-accent)">–</span>
                 {bullet}
               </li>
             ))}

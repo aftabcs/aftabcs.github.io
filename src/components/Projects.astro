@@ -44,7 +44,7 @@ const projects = [
   <div class="max-w-[1280px] mx-auto px-6">
     <div class="reveal mb-12">
       <div class="section-label mb-4">Projects</div>
-      <h2 class="font-display font-bold text-[var(--color-text-primary)]" style="font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -0.03em; line-height: 1.05">
+      <h2 class="font-display font-bold" style="font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -0.03em; line-height: 1.05; color: var(--color-text-primary)">
         Selected Work
       </h2>
     </div>
@@ -54,50 +54,66 @@ const projects = [
       {projects.map((project, i) => (
         <div
           class:list={[
-            "project-card group relative bg-[var(--color-surface)] border border-[var(--color-border)] overflow-hidden transition-all duration-250 cursor-default stagger-child reveal",
+            "project-card group relative overflow-hidden transition-all duration-250 cursor-default stagger-child reveal",
             project.featured ? "lg:col-span-2 lg:row-span-2 rounded-3xl" : "rounded-2xl"
           ]}
-          style={`transition-timing-function: cubic-bezier(0.16,1,0.3,1); transition-delay: ${i * 60}ms`}
+          style={`
+            background: var(--glass-base);
+            backdrop-filter: var(--blur-md);
+            -webkit-backdrop-filter: var(--blur-md);
+            border: 1px solid var(--color-border);
+            border-top-color: var(--color-border-light);
+            box-shadow: var(--shadow-glass-base);
+            transition-timing-function: cubic-bezier(0.16,1,0.3,1);
+            transition-delay: ${i * 60}ms;
+          `}
         >
-          <!-- Placeholder image -->
+          <!-- Image area -->
           <div
             class:list={[
-              "w-full bg-gradient-to-br from-[var(--color-surface-raised)] to-[var(--color-bg)] flex items-center justify-center overflow-hidden transition-transform duration-400",
+              "w-full flex items-center justify-center overflow-hidden transition-transform duration-400",
               project.featured ? "h-56 lg:h-72" : "h-40"
             ]}
+            style="background: var(--glass-frosted); border-bottom: 1px solid var(--color-border)"
           >
             <div class="text-center">
-              <div class="font-display font-bold text-[var(--color-accent)] opacity-30 text-4xl lg:text-6xl mb-2">
+              <div class="font-display font-bold opacity-30 text-4xl lg:text-6xl mb-2" style="color: var(--color-accent)">
                 {project.title.split(' ').map(w => w[0]).join('')}
               </div>
-              <div class="font-mono text-[0.65rem] text-[var(--color-text-muted)] uppercase tracking-widest">
+              <div class="font-mono text-[0.65rem] uppercase tracking-widest" style="color: var(--color-text-muted)">
                 Placeholder
               </div>
             </div>
           </div>
 
           <div class="p-5 lg:p-6">
-            <!-- Tech pills -->
+            <!-- Tech tags -->
             <div class="flex flex-wrap gap-1.5 mb-3">
               {project.tech.map(t => (
-                <span class="font-mono text-[0.65rem] text-[var(--color-text-muted)] border border-[var(--color-border)] px-2 py-0.5 rounded transition-all duration-150 hover:bg-[var(--color-accent-subtle)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)]">
+                <span class="tech-tag font-mono text-[0.65rem] px-2 py-0.5 rounded transition-all duration-150 cursor-default" style="
+                  background: #0C0C10;
+                  border: 1px solid var(--color-border);
+                  border-radius: var(--radius-md);
+                  box-shadow: var(--shadow-neo-inset);
+                  color: var(--color-text-muted);
+                ">
                   {t}
                 </span>
               ))}
             </div>
 
-            <h3 class="font-display font-semibold text-[var(--color-text-primary)] mb-1.5 transition-colors duration-200" style="font-size: clamp(1.125rem, 1.5vw, 1.5rem)">
+            <h3 class="font-display font-semibold mb-1.5 transition-colors duration-200" style={`font-size: clamp(1.125rem, 1.5vw, 1.5rem); color: var(--color-text-primary)`}>
               {project.title}
             </h3>
 
             {project.highlight && (
               <div class="flex items-center gap-1.5 mb-2">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="var(--color-accent)"><path d="M6 1l1.4 2.8L11 4.3l-2.5 2.4.6 3.4L6 8.5l-3.1 1.6.6-3.4L1 4.3l3.6-.5L6 1z"/></svg>
-                <span class="font-mono text-[0.65rem] text-[var(--color-accent)] uppercase tracking-wide">{project.highlight}</span>
+                <span class="font-mono text-[0.65rem] uppercase tracking-wide" style="color: var(--color-accent-bright)">{project.highlight}</span>
               </div>
             )}
 
-            <p class="text-[var(--color-text-secondary)] text-sm leading-relaxed">
+            <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">
               {project.description}
             </p>
           </div>
@@ -109,8 +125,12 @@ const projects = [
 
 <style>
   .project-card:hover {
-    transform: translateY(-4px) scale(1.01);
-    border-color: rgba(139,92,246,0.4);
-    box-shadow: var(--shadow-accent);
+    transform: translateY(-4px);
+    border-color: rgba(139,92,246,0.30) !important;
+    box-shadow: var(--shadow-accent) !important;
+  }
+  .tech-tag:hover {
+    border-color: rgba(139,92,246,0.40) !important;
+    color: var(--color-accent-bright) !important;
   }
 </style>
