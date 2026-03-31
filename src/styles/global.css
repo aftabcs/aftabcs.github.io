@@ -1,8 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-accent: #8B5CF6;
+  --color-accent-subtle: rgba(139,92,246,0.12);
+  --color-accent-glow: rgba(139,92,246,0.25);
+  --color-surface: #111111;
+  --color-surface-raised: #1C1C1E;
+
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+
+  --animate-scroll-bounce: scrollBounce 2s ease-in-out infinite;
+
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+}
 
 :root {
   /* Dark mode (default) */
@@ -69,17 +89,44 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@layer utilities {
-  .text-primary { color: var(--color-text-primary); }
-  .text-secondary { color: var(--color-text-secondary); }
-  .text-muted { color: var(--color-text-muted); }
-  .text-accent { color: var(--color-accent); }
-  .bg-page { background-color: var(--color-bg); }
-  .bg-surface { background-color: var(--color-surface); }
-  .bg-surface-raised { background-color: var(--color-surface-raised); }
-  .border-default { border-color: var(--color-border); }
-  .border-subtle { border-color: var(--color-border-subtle); }
-  .shadow-accent-glow { box-shadow: var(--shadow-accent); }
+@utility text-primary {
+  color: var(--color-text-primary);
+}
+
+@utility text-secondary {
+  color: var(--color-text-secondary);
+}
+
+@utility text-muted {
+  color: var(--color-text-muted);
+}
+
+@utility text-accent {
+  color: var(--color-accent);
+}
+
+@utility bg-page {
+  background-color: var(--color-bg);
+}
+
+@utility bg-surface {
+  background-color: var(--color-surface);
+}
+
+@utility bg-surface-raised {
+  background-color: var(--color-surface-raised);
+}
+
+@utility border-default {
+  border-color: var(--color-border);
+}
+
+@utility border-subtle {
+  border-color: var(--color-border-subtle);
+}
+
+@utility shadow-accent-glow {
+  box-shadow: var(--shadow-accent);
 }
 
 /* Section label pattern */
