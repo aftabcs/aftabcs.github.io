@@ -1,6 +1,10 @@
 ---
 const skillCategories = [
   {
+    name: "AI & Automation",
+    skills: ["Claude", "GPT-4", "Cursor", "Copilot", "LangChain", "AI Agents", "Prompt Eng"],
+  },
+  {
     name: "Languages",
     skills: ["Dart", "TypeScript", "Python", "HTML", "CSS"],
   },
@@ -10,7 +14,7 @@ const skillCategories = [
   },
   {
     name: "Web",
-    skills: ["Angular", "NestJS", "Node.js"],
+    skills: ["Angular", "NestJS", "Node.js", "Astro", "React"],
   },
   {
     name: "Backend / DB",
@@ -21,17 +25,23 @@ const skillCategories = [
     skills: ["Clean Architecture", "MVVM", "MVC", "Dio", "Riverpod"],
   },
   {
+    name: "DevOps & Workflow",
+    skills: ["Docker", "CI/CD", "GitHub Actions", "Legacy Migration"],
+  },
+  {
     name: "APIs / SDKs",
     skills: ["Facebook API", "Google API", "Infobip", "Microblink", "UAE Pass"],
   },
 ];
 
 const skillIcon: Record<string, string> = {
+  "Claude": "Cl", "GPT-4": "GP", "Cursor": "Cu", "Copilot": "Co", "LangChain": "LC", "AI Agents": "AG", "Prompt Eng": "PE",
   "Dart": "Da", "TypeScript": "TS", "Python": "Py", "HTML": "HT", "CSS": "CS",
   "Flutter": "Fl", "Cross-platform": "Cx", "iOS": "iOS", "Android": "An",
-  "Angular": "Ng", "NestJS": "Ns", "Node.js": "No",
+  "Angular": "Ng", "NestJS": "Ns", "Node.js": "No", "Astro": "As", "React": "Re",
   "Firebase": "Fb", "Firestore": "Fs", "Appwrite": "Aw", "SQLite": "SQ", "Hive": "Hi",
   "Clean Architecture": "CA", "MVVM": "MV", "MVC": "MC", "Dio": "Di", "Riverpod": "Rv",
+  "Docker": "Dk", "CI/CD": "CI", "GitHub Actions": "GA", "Legacy Migration": "LM",
   "Facebook API": "FB", "Google API": "Go", "Infobip": "Ib", "Microblink": "Mb", "UAE Pass": "UP",
 };
 ---
@@ -40,7 +50,7 @@ const skillIcon: Record<string, string> = {
     <div class="reveal mb-12">
       <div class="section-label mb-4">Skills</div>
       <h2 class="font-display font-bold" style="font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -0.03em; line-height: 1.05; color: var(--color-text-primary)">
-        Technical Stack
+        Technical Arsenal
       </h2>
     </div>
 

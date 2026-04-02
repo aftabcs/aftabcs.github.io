@@ -1,15 +1,15 @@
 ---
 const codeSnippets = [
-  { code: "flutter pub get",     top: "12%",  left: "72%", delay: "0s"   },
-  { code: "git push origin main",top: "28%",  left: "78%", delay: "1.2s" },
-  { code: "npm run build",       top: "58%",  left: "68%", delay: "2.4s" },
-  { code: "cargo build --release",top: "75%", left: "75%", delay: "3.6s" },
-  { code: "docker compose up",   top: "42%",  left: "80%", delay: "0.8s" },
+  { code: "ai migrate --legacy-to-modern", top: "12%",  left: "72%", delay: "0s"   },
+  { code: "git push origin main",          top: "28%",  left: "78%", delay: "1.2s" },
+  { code: "ai generate --full-stack",      top: "58%",  left: "68%", delay: "2.4s" },
+  { code: "ai automate --workflow",        top: "75%",  left: "75%", delay: "3.6s" },
+  { code: "docker compose up",            top: "42%",  left: "80%", delay: "0.8s" },
 ];
 
 const typewriterPhrases = [
-  "Building fast, accessible products",
-  "for the web and mobile.",
+  "One engineer. The output of a full team.",
+  "AI-powered development at scale.",
 ];
 ---
 <section id="hero" class="relative min-h-screen flex flex-col justify-center overflow-hidden">
@@ -48,7 +48,7 @@ const typewriterPhrases = [
         color: var(--color-accent-bright);
       ">
         <span class="inline-block w-1.5 h-1.5 rounded-full" style="background: #4ADE80; box-shadow: 0 0 6px #4ADE80;"></span>
-        FULL-STACK DEVELOPER &bull; OPEN TO WORK
+        AI-POWERED ENGINEER &bull; OPEN TO WORK
       </span>
     </div>
 
@@ -122,10 +122,10 @@ const typewriterPhrases = [
     document.getElementById('hero-tagline')?.classList.remove('opacity-0');
     // Typing effect
     const phrases = [
-      "Building fast, accessible products",
-      "\nfor the web and mobile."
+      "One engineer. The output of a full team.",
+      "\nAI-powered development at scale."
     ];
-    const fullText = "Building fast, accessible products\nfor the web and mobile.";
+    const fullText = "One engineer. The output of a full team.\nAI-powered development at scale.";
     const el = document.getElementById('typewriter-text');
     if (!el) return;
     let i = 0;

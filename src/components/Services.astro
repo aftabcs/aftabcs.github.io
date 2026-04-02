@@ -1,0 +1,68 @@
+---
+const services = [
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="var(--color-accent)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg>`,
+    title: "Full-Stack App Development",
+    description: "Web, mobile, or cross-platform — I build production-grade apps from scratch using AI-accelerated workflows. Any stack, any scale.",
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke="var(--color-accent)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg>`,
+    title: "Legacy Codebase Migration",
+    description: "Modernize outdated codebases to latest frameworks and architectures. AI-powered analysis ensures nothing breaks during migration.",
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 8V4H8M2 12a10 10 0 0010 10M22 12A10 10 0 0012 2M12 16v4h4" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="var(--color-accent)" stroke-width="1.5"/></svg>`,
+    title: "Workflow Automation",
+    description: "Automate repetitive developer workflows — CI/CD pipelines, testing, deployment, code review. Ship faster with less manual overhead.",
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l.146.146A3 3 0 0118 21H6a3 3 0 01-2.683-4.354l.147-.146z" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    title: "AI Integration & Agents",
+    description: "Build custom AI agents, integrate LLMs into existing products, and create intelligent automation that makes your team faster.",
+  },
+];
+---
+<section id="services" class="py-24 lg:py-32">
+  <div class="max-w-[1280px] mx-auto px-6">
+    <div class="reveal mb-12">
+      <div class="section-label mb-4">What I Deliver</div>
+      <h2 class="font-display font-bold" style="font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -0.03em; line-height: 1.05; color: var(--color-text-primary)">
+        One Engineer,<br />Full Team Output
+      </h2>
+      <p class="mt-4 max-w-2xl text-lg" style="color: var(--color-text-secondary)">
+        I leverage AI at every stage of development — planning, coding, testing, deployment. The result: faster delivery, fewer bugs, and the throughput of a 10-20 person team.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {services.map((service, i) => (
+        <div
+          class="service-card reveal rounded-2xl p-6 lg:p-8 transition-all duration-300"
+          style={`
+            background: var(--glass-base);
+            backdrop-filter: var(--blur-md);
+            -webkit-backdrop-filter: var(--blur-md);
+            border: 1px solid var(--color-border);
+            border-top-color: var(--color-border-light);
+            box-shadow: var(--shadow-glass-base);
+            transition-delay: ${i * 80}ms;
+          `}
+        >
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: var(--color-accent-subtle)">
+            <Fragment set:html={service.icon} />
+          </div>
+          <h3 class="font-display font-semibold text-lg mb-2" style="color: var(--color-text-primary)">{service.title}</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-card:hover {
+    border-color: rgba(225,29,72,0.35) !important;
+    box-shadow: var(--shadow-glass-lg), 0 0 24px rgba(225,29,72,0.18) !important;
+    transform: translateY(-3px);
+  }
+</style>
